@@ -115,6 +115,9 @@ function revealGridSampleResult(target, color){
 
 function clearInstruction(center_overlay, BG_overlay){
 
+    if(gameOver)
+        return;
+    
     for (let i = 0; i < typeFormBtn.length; i++) {
         typeFormBtn[i].style.opacity = "0"
         typeFormBtn[i].style.zIndex = "-1"
@@ -429,6 +432,7 @@ function processInput(e){
         const node = document.getElementsByClassName("container-G-O")[0];
         node.remove()
 
+        document.getElementById('keyboardParent').style.zIndex='-1'
         livesText = document.getElementById("lives").innerText = String.fromCodePoint(0x1F48E) + ": " + (lives).toString();
         answer.innerText = word;
         let overlay = document.getElementById('overlay')
@@ -436,6 +440,7 @@ function processInput(e){
                 
         answer.style.opacity = "10";
         answer.style.color = "#333399"
+        answer.style.position = 'relative'
 
         for (let i = 0; i < typeFormBtn.length; i++) {
             typeFormBtn[i].style.opacity = "1"
@@ -449,7 +454,7 @@ function processInput(e){
             duration: 100,
             complete:function () {
                 BG_overlay.style.opacity = "1"
-                BG_overlay.style.zIndex = "1"
+                BG_overlay.style.zIndex = "0"
             }
         })
     }
