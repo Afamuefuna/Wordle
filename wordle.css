@@ -1,4 +1,11 @@
 
+.tf-v1-popover {
+    bottom: 96px;
+    position: fixed;
+    right: 16px;
+    z-index: 0;
+}
+
 hr {
     width: 500px;
     display: flex;
@@ -99,7 +106,6 @@ body {
 }
 
 #keyboardParent {
-    margin-bottom: 30px;
     bottom: 0;
     justify-content: center;
     display: grid;
@@ -108,19 +114,6 @@ body {
     place-self: center;
     position: fixed;
     width: 100%
-}
-
-#Collect-feedback{
-    bottom: 0;
-    font-size: small;
-    color: white;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    height: fit-content;
-    border-top: 1px solid #d3d6da;
-    margin: 0;
-    padding: 5px;
 }
 
 #Header {
@@ -357,13 +350,11 @@ body {
     display: inline-block;
 }
 
-.enter-key-tile {
-    width: 76px;
-    height: 50px;
+.enter-key-tile, .Backspace-key-tile {
+    width: 60px;
+    height: 76px;
     margin: 2px;
-
     border-radius: 5px;
-
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -371,6 +362,10 @@ body {
     align-items: center;
     color: white;
     background-color: #797979;
+}
+
+.Backspace-key-tile{
+    font-size: 35px;
 }
 
 /* Style inputs, select elements and textareas */
@@ -401,12 +396,6 @@ input[type=submit] {
 
 /* Style the container */
 #feedback-container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 500px;
-    margin: auto;
-    text-align: left;
     z-index: -5;
     opacity: 0;
 }
@@ -533,10 +522,14 @@ input[type=submit] {
         width: 350px;
     }
 
-    .enter-key-tile {
+    .enter-key-tile, .Backspace-key-tile {
         width: 50px;
         height: 50px;
         font-size: 15px;
+    }
+    
+    .Backspace-key-tile{
+        font-size: 25px;
     }
 
     .key-tile {
@@ -590,7 +583,7 @@ input[type=submit] {
             margin: 0;
         }
 
-        .enter-key-tile {
+        .enter-key-tile, .Backspace-key-tile {
             width: 52px;
             height: 47px;
         }
@@ -621,10 +614,14 @@ input[type=submit] {
         width: 400px;
     }
 
-    .enter-key-tile {
+    .enter-key-tile, .Backspace-key-tile {
         width: 55px;
         height: 75px;
         font-size: 15px;
+    }
+    
+    .Backspace-key-tile{
+        font-size: 25px;
     }
 
     .key-tile {
@@ -670,7 +667,7 @@ input[type=submit] {
             width: 390px;
         }
 
-        .enter-key-tile {
+        .enter-key-tile, .Backspace-key-tile {
             width: 52px;
             height: 60px;
         }
@@ -686,7 +683,7 @@ input[type=submit] {
             width: 390px;
         }
 
-        .enter-key-tile {
+        .enter-key-tile, .Backspace-key-tile {
             width: 52px;
             height: 60px;
         }
@@ -715,7 +712,7 @@ input[type=submit] {
                 width: 370px;
             }
 
-            .enter-key-tile {
+            .enter-key-tile, .Backspace-key-tile {
                 width: 50px;
                 height: 60px;
             }
@@ -743,7 +740,7 @@ input[type=submit] {
         width: 650px;
     }
 
-    .enter-key-tile {
+    .enter-key-tile, .Backspace-key-tile {
         width: 80px;
         height: 100px;
     }

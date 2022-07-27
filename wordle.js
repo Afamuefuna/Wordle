@@ -14,7 +14,6 @@ var numOfPlays = 0;
 var highScore = 0;
 
 var canPlay = false;
-var feedbackDisplayed = false;
 
 var answer;
 
@@ -27,6 +26,8 @@ var YourScore
 
 let word;
 let guessList
+
+var typeFormBtn;
 
 var playerResultStat = {
     'Word': "",
@@ -113,8 +114,14 @@ function revealGridSampleResult(target, color){
 }
 
 function clearInstruction(center_overlay, BG_overlay){
+
+    for (let i = 0; i < typeFormBtn.length; i++) {
+        typeFormBtn[i].style.opacity = "0"
+        typeFormBtn[i].style.zIndex = "-1"
+    }
+    
     anime({
-        targets: center_overlay,
+        targets: center_overlay, nodeList: typeFormBtn,
         easing: 'linear',
         opacity: 0,
         translateY: 0,
@@ -130,41 +137,6 @@ function clearInstruction(center_overlay, BG_overlay){
     answer.style.zIndex = '1'
 }
 
-function feedbackDisplay(display){
-    if(display == true){
-        feedbackDisplayed = true;
-        const feedbackContainer = document.getElementById("feedback-container")
-
-        anime({
-            targets: feedbackContainer,
-            easing: 'linear',
-            opacity: 1,
-            translateY: 1,
-            duration: 100,
-            scale: 1,
-            complete:function () {
-                feedbackContainer.style.zIndex = '2'
-            }
-        })   
-    }else{
-        feedbackDisplayed = false;
-        canPlay = true;
-        const feedbackContainer = document.getElementById("feedback-container")
-
-        anime({
-            targets: feedbackContainer,
-            easing: 'linear',
-            opacity: 0,
-            scale: 0,
-            translateY: 0,
-            duration: 100,
-            complete:function () {
-                feedbackContainer.style.zIndex = '0'
-            }
-        })
-    }
-}
-
 var resultDetail = {
     'word':"",
     'score':"",
@@ -177,7 +149,8 @@ window.onload = function (){
 
     readTextFile("scrabbable")
     initialize();
-
+    
+    typeFormBtn = document.getElementsByClassName('tf-v1-popover')
     YourScore = document.getElementById('total-score')
     GridBoard = document.getElementById('board')
     GameOverTable = document.getElementById('Game-over-table')
@@ -207,12 +180,11 @@ window.onload = function (){
         clearInstruction(center_overlay, BG_overlay)
     }
     
-    document.getElementById('feedback-link').onclick = function (){
-        feedbackDisplay(true)
-    }
+    var nodeList = document.querySelectorAll("tf-v1-popover")
 
-    document.getElementById('feedback_close_icon').onclick = function (){
-        feedbackDisplay(false)
+    for (let i = 0; i < nodeList.length; i++) {
+        nodeList[i].style.opacity = "0"
+        nodeList[i].style.zIndex = "0"
     }
     
     document.getElementById('Center-overlay').onclick = function () {
@@ -335,7 +307,7 @@ function initialize(){
                 keyTile.classList.add("enter-key-tile");
             }
             else if(key == "⌫"){
-                keyTile.classList.add("enter-key-tile");
+                keyTile.classList.add("Backspace-key-tile");
             }
             else{
                 keyTile.classList.add("key-tile")
@@ -404,9 +376,6 @@ function processInput(e){
     if(!canPlay){
         return;
     }
-    if(feedbackDisplayed){
-        return;
-    }
     
     if(gameOver) return;
 
@@ -468,11 +437,20 @@ function processInput(e){
         answer.style.opacity = "10";
         answer.style.color = "#333399"
 
+        for (let i = 0; i < typeFormBtn.length; i++) {
+            typeFormBtn[i].style.opacity = "1"
+            typeFormBtn[i].style.zIndex = "1001"
+        }
+
         anime({
             targets: GameOverBoard,
             easing: 'linear',
             opacity: 1,
-            duration: 100
+            duration: 100,
+            complete:function () {
+                BG_overlay.style.opacity = "1"
+                BG_overlay.style.zIndex = "1"
+            }
         })
     }
 }
