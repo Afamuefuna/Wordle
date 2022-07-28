@@ -364,6 +364,17 @@ body {
     background-color: #797979;
 }
 
+#feedback{
+    bottom: 0;
+    justify-content: center;
+    place-content: center;
+    place-items: center;
+    place-self: center;
+    position: fixed;
+    color: white;
+    width: 100%;
+    font-family: "Lato", Sans-serif;}
+
 .Backspace-key-tile{
     font-size: 35px;
 }
@@ -392,12 +403,6 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-/* Style the container */
-#feedback-container {
-    z-index: -5;
-    opacity: 0;
 }
 
 /* Floating column for labels: 25% width */
@@ -521,6 +526,10 @@ input[type=submit] {
     .keyboard-row {
         width: 350px;
     }
+    
+    #keyboardParent{
+        margin-bottom: 40px;
+    }
 
     .enter-key-tile, .Backspace-key-tile {
         width: 50px;
@@ -537,15 +546,19 @@ input[type=submit] {
         height: 50px;
         font-size: 15px;
     }
+    
+    .keyboard-row{
+        margin: 0;
+    }
 
     .tile {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         font-size: 15px;
     }
 
     #board {
-        height: 53%;
+        height: 45%;
         top: 16%;
     }
 
@@ -567,6 +580,50 @@ input[type=submit] {
 
     #your-score, #total-score {
         font-size: 15px;
+    }
+    
+    @media (max-width: 360px) {
+        #Header{
+            font-size: 20px;
+        }
+        
+        @media (max-width: 330px) {
+            .key-tile{
+                width: 23px;
+                height: 40px;
+            }
+            
+            .Backspace-key-tile, .enter-key-tile {
+                width: 40px;
+                height: 40px;
+            }
+            
+            #Header{
+                font-size: 15px;
+            }
+            
+            #your-score, #total-score{
+                font-size: smaller;
+            }
+            
+            #Share{
+                font-size: smaller;
+            }
+            
+            #feedback{
+                font-size: 12px;
+            }
+            
+            #Center-overlay{
+                font-size: 10px;
+            }
+            
+            .sample-tile{
+                font-size: 12px;
+                width: 17px;
+                height: 17px;
+            }
+        }
     }
 
     @media (max-height: 600px) {
@@ -616,7 +673,7 @@ input[type=submit] {
 
     .enter-key-tile, .Backspace-key-tile {
         width: 55px;
-        height: 75px;
+        height: 70px;
         font-size: 15px;
     }
     
@@ -626,7 +683,7 @@ input[type=submit] {
 
     .key-tile {
         width: 35px;
-        height: 75px;
+        height: 70px;
         font-size: 15px;
     }
 
@@ -642,12 +699,17 @@ input[type=submit] {
     #board {
         width: 100%;
         height: 450px;
+        top: 18%;
+    }
+    
+    #keyboardParent{
+        margin-bottom: 50px;
     }
 
     @media (max-height: 900px) {
         .key-tile {
             width: 35px;
-            height: 75px;
+            height: 70px;
             font-size: 15px;
         }
         .tile {
@@ -660,6 +722,7 @@ input[type=submit] {
             width: 100%;
             height: 415px;
         }
+        
     }
 
     @media (max-width: 395px) {
@@ -724,12 +787,13 @@ input[type=submit] {
 
             .tile {
                 /*Box*/
-                width: 40px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
             }
 
             #board {
-                height: 300px;
+                height: 355px;
+                top: 16%;
             }
         }
     }
@@ -767,6 +831,11 @@ input[type=submit] {
         left: 20%;
         font-size: 17px;
     }
+    
+    #feedback{
+        opacity: 0;
+        z-index: -5;
+    }
 
     #Center-overlay{
         right: 10%;
@@ -786,5 +855,77 @@ input[type=submit] {
 
     .result {
         margin-top: 30px;
+    }
+    
+}
+
+@media (max-height: 850px) and (min-width: 450px){
+    @media (min-height: 760px) {
+        .sample-tile {
+            width: 30px;
+            height: 30px;
+            font-size: 15px;
+        }
+
+        #Center-overlay{
+            right: 30%;
+            left: 30%;
+            font-size: 13px;
+        }
+        
+        .tile{
+            width: 50px;
+            height: 50px;
+        }
+        
+        #board{
+            height: 365px;
+        }
+        .enter-key-tile, .Backspace-key-tile {
+            width: 55px;
+            height: 50px;
+        }
+
+        .key-tile {
+            width: 35px;
+            height: 50px;
+        }
+    }
+    
+    @media (max-height: 700px) {
+        .tile{
+            width: 40px;
+            height: 40px;
+        }
+        
+        #board{
+            height: 300px;
+        }
+
+        .enter-key-tile, .Backspace-key-tile {
+            width: 55px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        .key-tile {
+            width: 35px;
+            height: 40px;
+            font-size: 20px;
+        }
+        
+        #keyboardParent{
+            margin-bottom: 40px;
+        }
+        
+        #Center-overlay{
+            font-size: 10px;
+        }
+        
+        .sample-tile{
+            height: 25px;
+            width: 25px;
+            font-size: 13px;
+        }
     }
 }

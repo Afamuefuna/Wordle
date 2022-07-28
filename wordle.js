@@ -118,11 +118,6 @@ function clearInstruction(center_overlay, BG_overlay){
     if(gameOver)
         return;
     
-    for (let i = 0; i < typeFormBtn.length; i++) {
-        typeFormBtn[i].style.opacity = "0"
-        typeFormBtn[i].style.zIndex = "-1"
-    }
-    
     anime({
         targets: center_overlay, nodeList: typeFormBtn,
         easing: 'linear',
