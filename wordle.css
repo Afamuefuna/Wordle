@@ -862,6 +862,17 @@ input[type=submit] {
     
 }
 
+@media (min-width: 520px) {
+    #feedback{
+        opacity: 0;
+        z-index: -5;
+    }
+    
+    #keyboardParent{
+        margin-bottom: 0;
+    }
+}
+
 @media (max-height: 850px) and (min-width: 450px){
     @media (min-height: 760px) {
         .sample-tile {
