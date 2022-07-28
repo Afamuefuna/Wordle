@@ -371,6 +371,7 @@ body {
     position: fixed;
     color: white;
     width: 100%;
+    font-size: small;
     font-family: "Lato", Sans-serif;}
 
 .Backspace-key-tile{
