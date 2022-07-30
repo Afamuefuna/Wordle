@@ -417,8 +417,8 @@ body {
 
     #board {
         width: fit-content;
-        top: 18%;
-        height: 50%;
+        top: 16%;
+        height: 53%;
         justify-content: center;
         vertical-align: middle;
         right: 5%;
@@ -437,7 +437,7 @@ body {
         justify-content: normal;
         height: 25%;
         place-content: normal;
-        margin-bottom: 12%;
+        margin-bottom: 10%;
     }
 
     .keyboard-row {
@@ -480,9 +480,10 @@ body {
     }
     
     @media (max-height: 612px) {
-        /*#board{
-            top: 15%
-        }*/
+        #board{
+            top: 14%;
+            height: 55%;
+        }
         
         .result{
             font-size: 11px;

@@ -296,12 +296,12 @@ function initialize(){
     
     let tiles = document.getElementsByClassName('tile')
     for(let i = 0; i < tiles.length; i++){
-        tiles[i].style.height = (pxTileHeight - 1) + "px";
-        tiles[i].style.width = (pxTileHeight - 1) + "px"
-    }
-    
-    if(isOverflown(board)){
-        console.log("over")
+        tiles[i].style.height = (pxTileHeight - 3) + "px";
+        tiles[i].style.width = (pxTileHeight - 3) + "px"
+
+        if(!isOverflown(tiles[i])){
+            console.log("over")
+        }
     }
 
     for (let i = 0; i<keyboard.length; i++){
