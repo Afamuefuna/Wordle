@@ -480,9 +480,9 @@ body {
     }
     
     @media (max-height: 612px) {
-        #board{
+        /*#board{
             top: 15%
-        }
+        }*/
         
         .result{
             font-size: 11px;
