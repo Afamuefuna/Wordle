@@ -486,7 +486,7 @@ body {
     @media (max-height: 612px) {
         #board{
             top: 14%;
-            height: 52%;
+            height: 49%;
         }
         
         .result{
