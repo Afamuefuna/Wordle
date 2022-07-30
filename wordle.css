@@ -443,7 +443,7 @@ body {
     .keyboard-row {
         width: 100%;
         height: 90%;
-        margin: 2%;
+        margin: auto;
     }
 
     .Backspace-key-tile, .enter-key-tile {
@@ -452,10 +452,6 @@ body {
         font-size: 100%;
     }
     
-    .Backspace-key-tile{
-        font-size: 170%;
-    }
-
     .key-tile {
         width: 8%;
         height: 100%;

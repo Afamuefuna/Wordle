@@ -335,15 +335,20 @@ function initialize(){
         }
         document.getElementById("keyboardParent").appendChild(keyboardRow)
     }
+    var keyParent = document.getElementById('keyboardParent')
+    keyParent.style.height = keyParent.clientHeight.toString() + 'px';
+    
 
     let keyboardRows = document.getElementsByClassName('keyboard-row');
     
     console.log(keyboardRows[0].clientHeight)
-    keyboardRows[0].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
-    keyboardRows[1].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
-    keyboardRows[2].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
+    keyboardRows[0].style.height = (keyboardRows[0].clientHeight).toString() + "px"
+    keyboardRows[1].style.height = (keyboardRows[0].clientHeight).toString() + "px"
+    keyboardRows[2].style.height = (keyboardRows[0].clientHeight).toString() + "px"
     
     keyboardRows[2].style.margin = '0'
+    
+    document.getElementById('Backspace').style.fontSize = "25px"
     
     document.addEventListener("keydown", (e ) => {
         processInput(e);
