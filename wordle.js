@@ -339,7 +339,11 @@ function initialize(){
     let keyboardRows = document.getElementsByClassName('keyboard-row');
     
     console.log(keyboardRows[0].clientHeight)
+    keyboardRows[0].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
+    keyboardRows[1].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
     keyboardRows[2].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
+    
+    keyboardRows[2].style.margin = '0'
     
     document.addEventListener("keydown", (e ) => {
         processInput(e);
