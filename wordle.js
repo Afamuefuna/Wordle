@@ -296,8 +296,8 @@ function initialize(){
     
     let tiles = document.getElementsByClassName('tile')
     for(let i = 0; i < tiles.length; i++){
-        tiles[i].style.height = (pxTileHeight - 4) + "px";
-        tiles[i].style.width = (pxTileHeight - 4) + "px"
+        tiles[i].style.height = (pxTileHeight - 5) + "px";
+        tiles[i].style.width = (pxTileHeight - 5) + "px"
 
         if(!isOverflown(tiles[i])){
             console.log("over")
