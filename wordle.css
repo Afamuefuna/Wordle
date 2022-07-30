@@ -478,6 +478,17 @@ body {
         left: 2%;
         right: 2%;
     }
+    
+    @media (max-height: 612px) {
+        #board{
+            top: 15%
+        }
+        
+        .result{
+            font-size: 11px;
+            margin-top: 0;
+        }
+    }
 }
 
 @media (max-width: 350px) {
