@@ -451,6 +451,10 @@ body {
         height: 100%;
         font-size: 100%;
     }
+    
+    .Backspace-key-tile{
+        font-size:30px;
+    }
 
     .key-tile {
         width: 8%;
