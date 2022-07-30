@@ -185,11 +185,8 @@ window.onload = function (){
         nodeList[i].style.zIndex = "0"
     }
     
-    document.getElementById('Center-overlay').onclick = function () {
+    document.getElementById('instruct_close_btn').onclick = function () {
         clearInstruction(center_overlay, BG_overlay)
-    }
-    document.getElementById('Share').onclick = function () {
-        shareText()
     }
 }
 
@@ -271,7 +268,16 @@ let keyboard =
         ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫"],
     ]
 
+var pxTileWidth;
+var pxTileHeight;
+var board;
+
+function isOverflown(element) {
+    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
+
 function initialize(){
+    
     for (let r = 0; r < height; r++){
 
         for (let c = 0; c < width; c++){
@@ -279,8 +285,23 @@ function initialize(){
             tile.id = r.toString() + "-" + c.toString()
             tile.classList.add("tile")
             tile.innerText = " ";
-            document.getElementById("board").appendChild(tile)
+            board = document.getElementById("board").appendChild(tile)
+            
+            console.log(tile.clientWidth.toString());
+            
+            pxTileHeight = tile.clientHeight;
+            pxTileWidth = tile.clientWidth;
         }
+    }
+    
+    let tiles = document.getElementsByClassName('tile')
+    for(let i = 0; i < tiles.length; i++){
+        tiles[i].style.height = (pxTileHeight - 1) + "px";
+        tiles[i].style.width = (pxTileHeight - 1) + "px"
+    }
+    
+    if(isOverflown(board)){
+        console.log("over")
     }
 
     for (let i = 0; i<keyboard.length; i++){
@@ -423,7 +444,8 @@ function processInput(e){
     if(!gameOver && row==height){
         gameOver = true;
         GameOverBoard.style.zIndex = '2'
-
+        document.getElementById("Game-over-container").style.zIndex = '2'
+        document.getElementById("Game-over-container").style.opacity = '1'
         const node = document.getElementsByClassName("container-G-O")[0];
         node.remove()
 
@@ -440,6 +462,10 @@ function processInput(e){
         for (let i = 0; i < typeFormBtn.length; i++) {
             typeFormBtn[i].style.opacity = "1"
             typeFormBtn[i].style.zIndex = "1001"
+        }
+
+        document.getElementById('Share').onclick = function () {
+            shareText()
         }
 
         anime({
@@ -594,7 +620,6 @@ const clearUsedTiles = () => {
 };
 
 function update(){
-
     console.log("updating")
     let guess = "";
     answer.innerText = "";
@@ -686,6 +711,12 @@ function update(){
             _tries = 1;
             cleanKey();
             clearUsedTiles();
+
+            let tiles = document.getElementsByClassName('tile')
+            for(let i = 0; i < tiles.length; i++){
+                tiles[i].style.height = (pxTileHeight - 1) + "px";
+                tiles[i].style.width = (pxTileHeight - 1) + "px"
+            }
             return;
         }
     }

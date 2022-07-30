@@ -37,7 +37,7 @@
 <br>
 
 <div id="Center-overlay">
-    <img class="close_icon" src="https://img.icons8.com/material-outlined/24/FFFFFF/delete-sign.png"/>
+    <img id="instruct_close_btn" class="close_icon" src="https://img.icons8.com/material-outlined/24/FFFFFF/delete-sign.png"/>
     <p>Guess the <strong>WORDLE</strong> in six tries.<br><br>
         Each guess has to be a valid 5 letter word. <br><br>
         After each guess, the colour of tiles will change to show you how close it is to the word.<br/><br/>
@@ -96,27 +96,29 @@
         The letter <strong> T </strong> is not in the word in any spot.
     </p>
 </div>
-<div id="Game-over">
-    <p id="flag-GO">
-        &#127937
-        &#127937
-    </p>
-    <div id="wrapper">
-        <div class="container-G-O">
-            <p class="bottom-G-O" style="float: left;" id="_Word"></p>
-            <p class="bottom-G-O" style="float: left;" id="_Tries"></p>
-            <p class="bottom-G-O" style="float: right;" id="_Score"></p>
+<div id="Game-over-container">
+    <div id="Game-over">
+        <p id="flag-GO">
+            &#127937
+            &#127937
+        </p>
+        <div id="wrapper">
+            <div class="container-G-O">
+                <p class="bottom-G-O" style="float: left;" id="_Word"></p>
+                <p class="bottom-G-O" style="float: left;" id="_Tries"></p>
+                <p class="bottom-G-O" style="float: right;" id="_Score"></p>
+            </div>
         </div>
-    </div>
-    <div style="display: grid" class="container-TS">
-        <div id="stat-num" style="float: left;">
-            <p id="your-score">YOUR SCORE</p>
-        </div>
-        <div style="float: left">
-            <p id="total-score">0pts</p>
-        </div>
-        <div id="Share-container" style="float: right">
-            <p id="Share">SHARE</p>
+        <div style="display: grid" class="container-TS">
+            <div id="stat-num" style="float: left;">
+                <p id="your-score">YOUR SCORE</p>
+            </div>
+            <div style="float: left">
+                <p id="total-score">0pts</p>
+            </div>
+            <div id="Share-container" style="float: right">
+                <p id="Share">SHARE</p>
+            </div>
         </div>
     </div>
 </div>
@@ -132,7 +134,7 @@
     </p>
 </div>
 <p id ="feedback">
-    &#128075 What do you think about our game? &#128073 &#128073
+    
 </p>
 <div data-tf-popover="eB2cPjrL" data-tf-button-color="#0445AF" data-tf-button-text="Launch me" data-tf-iframe-props="title=WORDLE GRAND PRIX - Feedback form" data-tf-medium="snippet" style="all:unset;"></div>
 </body>
