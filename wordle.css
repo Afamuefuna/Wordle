@@ -453,8 +453,7 @@ body {
     }
     
     .Backspace-key-tile{
-        font-size: 100%;
-        max-height: inherit;
+        font-size: 170%;
     }
 
     .key-tile {

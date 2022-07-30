@@ -335,6 +335,12 @@ function initialize(){
         }
         document.getElementById("keyboardParent").appendChild(keyboardRow)
     }
+
+    let keyboardRows = document.getElementsByClassName('keyboard-row');
+    
+    console.log(keyboardRows[0].clientHeight)
+    keyboardRows[2].style.maxHeight = (keyboardRows[0].clientHeight).toString() + "px"
+    
     document.addEventListener("keydown", (e ) => {
         processInput(e);
     })
