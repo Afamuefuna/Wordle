@@ -417,7 +417,7 @@ body {
 
     #board {
         width: fit-content;
-        top: 16%;
+        top: 14%;
         height: 53%;
         justify-content: center;
         vertical-align: middle;
@@ -435,7 +435,7 @@ body {
     #keyboardParent {
         width: 100%;
         justify-content: normal;
-        height: 25%;
+        height: 28%;
         place-content: normal;
         margin-bottom: 10%;
     }
@@ -479,15 +479,23 @@ body {
         right: 2%;
     }
     
+    .result{
+        font-size: 11px;
+    }
+    
     @media (max-height: 612px) {
         #board{
             top: 14%;
-            height: 55%;
+            height: 52%;
         }
         
         .result{
             font-size: 11px;
             margin-top: 0;
+        }
+        
+        #keyboardParent{
+            margin-bottom: 13%;
         }
     }
 }
