@@ -729,8 +729,8 @@ function update(){
 
             let tiles = document.getElementsByClassName('tile')
             for(let i = 0; i < tiles.length; i++){
-                tiles[i].style.height = (pxTileHeight - 1) + "px";
-                tiles[i].style.width = (pxTileHeight - 1) + "px"
+                tiles[i].style.height = (pxTileHeight - 5) + "px";
+                tiles[i].style.width = (pxTileHeight - 5) + "px"
             }
             return;
         }
