@@ -159,6 +159,13 @@ window.onload = function (){
     let sample_wrong = document.getElementById('sample-tile-absent')
     let sample_correct = document.getElementById('sample-tile-correct')
     answer = document.getElementById('Answer');
+    
+    let popOver = document.getElementsByClassName('tf-v1-popover-button');
+    
+    for(let i = 0; i < popOver.length; i++){
+        popOver[i].style.top = 35;
+        popOver[i].style.bottom = 1;
+    }
 
     anime({
         targets: center_overlay,
@@ -181,8 +188,8 @@ window.onload = function (){
     var nodeList = document.querySelectorAll("tf-v1-popover")
 
     for (let i = 0; i < nodeList.length; i++) {
-        nodeList[i].style.opacity = "0"
-        nodeList[i].style.zIndex = "0"
+        nodeList[i].style.opacity = "10"
+        nodeList[i].style.zIndex = "10"
     }
     
     document.getElementById('instruct_close_btn').onclick = function () {

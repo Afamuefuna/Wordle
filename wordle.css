@@ -3,7 +3,7 @@
     bottom: 96px;
     position: fixed;
     right: 16px;
-    z-index: 0;
+    z-index: 1;
 }
 
 hr {
@@ -418,11 +418,11 @@ body {
     #board {
         width: fit-content;
         top: 14%;
-        height: 53%;
+        height: 55%;
         justify-content: center;
         vertical-align: middle;
         right: 5%;
-        left: 5%;
+        left: 3%;
         overflow-x: auto;
         margin: auto;
     }
@@ -435,9 +435,8 @@ body {
     #keyboardParent {
         width: 100%;
         justify-content: normal;
-        height: 28%;
+        height: 30%;
         place-content: normal;
-        margin-bottom: 10%;
     }
 
     .keyboard-row {
@@ -465,7 +464,6 @@ body {
         right: 2%;
         left: 2%;
         font-size: 16px;
-        font-size: 3.5vw;
     }
     
     .sample-tile{
@@ -526,5 +524,16 @@ body {
 @media (max-height: 970px) {
     #Center-overlay{
         height: 90%;
+        font-size: 16px;
     }
 }
+
+@media (max-width: 450px){
+    .tf-v1-popover-button {
+        width: 44px;
+        height: 44px;
+        right: 8px;
+        top: 30px;
+    }
+}
+   
