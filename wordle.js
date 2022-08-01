@@ -80,7 +80,7 @@ function shareText(){
         url: "https://afamuefuna.github.io/Wordle/Index.html",
     };
 
-    navigator.share(shareData)
+    navigator.share(shareData).then(r => console.log("Shared"))
 }
 
 const startConfetti = () => {
