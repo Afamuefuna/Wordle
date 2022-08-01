@@ -238,6 +238,7 @@ body {
     font-size: larger;
     font-weight: 700;
     font-family: Sans-serif;
+    cursor: pointer;
 }
 
 #your-score, #total-score {
