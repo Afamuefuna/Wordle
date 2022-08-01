@@ -67,11 +67,16 @@ async function shareImage(src) {
         text: "Play with me",
         title: "Wordle Grand Prix",
         url: "https://afamuefuna.github.io/Wordle/Index.html",
-        files: filesArray,
     };
 
     navigator.share(shareData);
 }
+
+const shareDataTest = {
+    text: "Play with me",
+    title: "Wordle Grand Prix",
+    url: "https://afamuefuna.github.io/Wordle/Index.html",
+};
 
 function shareText(){
     var introTxt = "I guessed " + numOfPlays + "Word(s) in a row!! can you beat my score?" + "\n\n"
@@ -86,8 +91,39 @@ function shareText(){
             .catch((error) => console.log('Error sharing', error));
     } else {
         console.log("Web Share API is not supported in your browser.")
+        
+        var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "https://afamuefuna.github.io/Wordle/Index.html";
+        
+        navigator.clipboard.writeText(shareInfo);
+        
+        var feedback = document.getElementById('feedback')
+
+        if(feedback.style.zIndex == "10"){
+            return;
+        }
+    
+        anime({
+            targets: feedback,
+            easing: 'linear',
+            opacity: 1,
+            translateY: 20,
+            duration: 100,
+            complete:function () {
+                feedback.style.zIndex = '10'
+                clearFeedBack()
+            }
+        })
     }
 }
+
+const clearFeedBack = () => {
+    setTimeout(function() {
+        var feedback = document.getElementById('feedback')
+        feedback.style.zIndex = '0'
+        feedback.style.opacity = '0'
+        
+    }, 3000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+};
 
 const startConfetti = () => {
     setTimeout(function() {
