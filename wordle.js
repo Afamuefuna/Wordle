@@ -80,7 +80,13 @@ function shareText(){
         url: "https://afamuefuna.github.io/Wordle/Index.html",
     };
 
-    navigator.share(shareData).then(r => console.log("Shared"))
+    if (navigator.share) {
+        navigator.share(shareData)
+            .then(() => console.log('Successful share'))
+            .catch((error) => console.log('Error sharing', error));
+    } else {
+        console.log("Web Share API is not supported in your browser.")
+    }
 }
 
 const startConfetti = () => {
