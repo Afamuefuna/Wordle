@@ -205,7 +205,7 @@ window.onload = function (){
     let popOver = document.getElementsByClassName('tf-v1-popover-button-icon');
     
     for(let i = 0; i < popOver.length; i++){
-        popOver[i].textContent += String.fromCodePoint(0x1F44B);
+        popOver[i].innerHTML += String.fromCodePoint(0x1F44B);
         popOver[i].style.fontSize = "15px"
         popOver[i].style.textAlign = 'center'
     }
