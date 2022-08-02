@@ -202,10 +202,15 @@ window.onload = function (){
     let sample_correct = document.getElementById('sample-tile-correct')
     answer = document.getElementById('Answer');
     
-    let popOver = document.getElementsByClassName('tf-v1-popover-button');
+    let popOver = document.getElementsByClassName('tf-v1-popover-button-icon');
     
     for(let i = 0; i < popOver.length; i++){
-        //popOver[i].textContent += String.fromCodePoint(0x1F44B);
+        popOver[i].innerHTML += String.fromCodePoint(0x1F44B);
+        popOver[i].style.fontSize = "15px"
+        popOver[i].style.textAlign = 'center'
+        popOver[i].style.height = '25px'
+        popOver[i].style.width = '25px'
+        popOver[i].removeChild(document.getElementsByClassName('default')[i])
     }
 
     anime({
