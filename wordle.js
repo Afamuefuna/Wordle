@@ -207,6 +207,7 @@ window.onload = function (){
     for(let i = 0; i < popOver.length; i++){
         popOver[i].textContent += String.fromCodePoint(0x1F44B);
         popOver[i].style.fontSize = "15px"
+        popOver[i].style.textAlign = 'center'
     }
 
     anime({
