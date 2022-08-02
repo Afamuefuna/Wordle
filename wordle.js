@@ -653,6 +653,8 @@ const clearUsedTiles = () => {
                     console.log("done")
                     c.remove();
                     canPlay = true
+
+                    document.getElementById('Block-overlay').style.zIndex = '-1'
                 }
             })
         })
@@ -667,6 +669,8 @@ const clearUsedTiles = () => {
                 complete: function (anim){
                     console.log("done")
                     c.remove();
+
+                    document.getElementById('Block-overlay').style.zIndex = '-1'
                 }
             })
         })
@@ -681,6 +685,8 @@ const clearUsedTiles = () => {
                 complete: function (anim){
                     console.log("done")
                     c.remove();
+
+                    document.getElementById('Block-overlay').style.zIndex = '-1'
                 }
             })
         })
@@ -744,6 +750,7 @@ function update(){
         console.log("correct " + correct)
 
         if(correct == width){
+            document.getElementById('Block-overlay').style.zIndex = '10'
             canPlay = false;
 
             answer.style.opacity = '1';
