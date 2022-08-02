@@ -442,7 +442,7 @@ body {
     #board {
         width: fit-content;
         top: 14%;
-        height: 55%;
+        height: 54%;
         justify-content: center;
         vertical-align: middle;
         right: 5%;
@@ -459,8 +459,9 @@ body {
     #keyboardParent {
         width: 100%;
         justify-content: normal;
-        height: 30%;
+        height: 27%;
         place-content: normal;
+        margin-bottom: 10%;
     }
 
     .keyboard-row {
@@ -508,7 +509,7 @@ body {
     @media (max-height: 612px) {
         #board{
             top: 15%;
-            height: 54%;
+            height: 51%;
         }
         
         .result{
@@ -550,10 +551,14 @@ body {
 
 @media (max-width: 450px){
     .tf-v1-popover-button {
-        width: 44px;
-        height: 44px;
+        width: 6%;
+        height: 4%;
         right: 8px;
-        top: 30px;
+        bottom: 1%;
+    }
+
+    .tf-v1-popover-button-icon svg {
+        width: 60%;
     }
 }
    
