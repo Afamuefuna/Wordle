@@ -556,19 +556,5 @@ body {
         right: 8px;
         bottom: 1%;
     }
-
-    .tf-v1-popover-button-icon svg.default {
-        margin-top: 0;
-    }
-
-    .tf-v1-popover-button-icon svg {
-        width: 30px;
-    }
-
-    tf-v1-popover-button-icon svg {
-        margin-top: 0;
-        max-height: 10px;
-        max-width: 30px;
-    }
 }
    
