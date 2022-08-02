@@ -207,6 +207,7 @@ window.onload = function (){
     for(let i = 0; i < popOver.length; i++){
         popOver[i].style.top = 35;
         popOver[i].style.bottom = 1;
+        popOver[i].textContent += 'T';
     }
 
     anime({
