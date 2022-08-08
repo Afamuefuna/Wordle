@@ -465,7 +465,6 @@ function processInput(e){
                 scale: 1.05,
             })
             if(currTile.innerText == ""){
-                console.log(e.code[3])
                 currTile.innerText = e.code[3];
                 col+=1
             }
@@ -710,7 +709,6 @@ function update(){
 
     for (let c = 0; c < width; c++){
         let currTile  = document.getElementById(row.toString()+'-'+ (c).toString());
-        console.log(col);
         let letter = currTile.innerText;
 
         if(word[c] == letter){
