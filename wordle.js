@@ -42,7 +42,6 @@ let BG_overlay;
 function arrangeResultShare(){
     let sessionResult;
 
-    console.log(playerResult.length - 1 + " length")
     for (let i = 0; i <= playerResult.length - 1; i++){
         sessionResult = playerResult[i].Tries  + playerResult[i].Word;
     }
@@ -263,7 +262,6 @@ function updateTable(){
 const logFileText = async file => {
     const response = await fetch(file)
     const text = await response.text()
-    console.log(text)
 }
 
 function readTextFile(file)
@@ -290,15 +288,12 @@ function readTextFile(file)
                 }
                 
                 word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
-                console.log(word)
-                console.log(word.length)
             }
         }
     }
 }
 
 function addMoreTries(){
-    console.log("row " + row)
     for (let r = height; r < height + 5; r++){
         for (let c = 0; c < width; c++){
             let tile = document.createElement("span")
@@ -340,8 +335,6 @@ function initialize(){
             tile.innerText = " ";
             board = document.getElementById("board").appendChild(tile)
             
-            console.log(tile.clientWidth.toString());
-            
             pxTileHeight = tile.clientHeight;
             pxTileWidth = tile.clientWidth;
         }
@@ -353,7 +346,6 @@ function initialize(){
         tiles[i].style.width = (pxTileHeight - 5) + "px"
 
         if(!isOverflown(tiles[i])){
-            console.log("over")
         }
     }
 
@@ -394,7 +386,6 @@ function initialize(){
 
     let keyboardRows = document.getElementsByClassName('keyboard-row');
     
-    console.log(keyboardRows[0].clientHeight)
     keyboardRows[0].style.height = (keyboardRows[0].clientHeight).toString() + "px"
     keyboardRows[1].style.height = (keyboardRows[0].clientHeight).toString() + "px"
     keyboardRows[2].style.height = (keyboardRows[0].clientHeight).toString() + "px"
@@ -412,7 +403,6 @@ function processKey(){
     if(!canPlay){
         return;
     }
-    console.log("clicked")
     e = {"code" : this.id};
     processInput(e);
 }
@@ -467,7 +457,6 @@ function processInput(e){
     if(gameOver) return;
 
     if("KeyA" <= e.code && e.code <= "KeyZ"){
-        console.log("entering texts")
         if(col < width){
             let currTile = document.getElementById(row.toString() + '-' + col.toString());
             anime({
@@ -485,7 +474,6 @@ function processInput(e){
     }
     else if(e.code == "Backspace"){
         if(0 < col && col <= width){
-            console.log(col)
             col -=1;
         }
         let currTile = document.getElementById(row.toString()+'-'+ col.toString());
@@ -650,7 +638,6 @@ const clearUsedTiles = () => {
                 translateX: translate,
                 easing: 'easeInOutSine',
                 complete: function (anim){
-                    console.log("done")
                     c.remove();
                     canPlay = true
 
@@ -667,7 +654,6 @@ const clearUsedTiles = () => {
                 translateX: translate,
                 easing: 'easeInOutSine',
                 complete: function (anim){
-                    console.log("done")
                     c.remove();
 
                     document.getElementById('Block-overlay').style.zIndex = '-1'
@@ -683,7 +669,6 @@ const clearUsedTiles = () => {
                 translateX: translate,
                 easing: 'easeInOutSine',
                 complete: function (anim){
-                    console.log("done")
                     c.remove();
 
                     document.getElementById('Block-overlay').style.zIndex = '-1'
@@ -694,19 +679,15 @@ const clearUsedTiles = () => {
 };
 
 function update(){
-    console.log("updating")
     let guess = "";
     answer.innerText = "";
 
     for(let c = 0; c < width; c++){
         let currTile = document.getElementById(row.toString() +'-' + (c).toString());
-        console.log(currTile.innerText);
         let letter = currTile.innerText;
         guess += letter;
     }
     guess = guess.toUpperCase();
-    console.log(guess);
-    console.log(word);
 
     if(!guessList.includes(guess)){
         answer.innerText = "Word is not on the list"
@@ -726,7 +707,6 @@ function update(){
             letterCount[letter] = 1;
         }
     }
-    console.log("Letter count " + letterCount)
 
     for (let c = 0; c < width; c++){
         let currTile  = document.getElementById(row.toString()+'-'+ (c).toString());
@@ -746,8 +726,6 @@ function update(){
             revealGridSampleResult(keyTile, "#333399")
             revealGridSampleResult(currTile, "#333399")
         }
-        console.log("width " + width);
-        console.log("correct " + correct)
 
         if(correct == width){
             document.getElementById('Block-overlay').style.zIndex = '10'
@@ -762,21 +740,16 @@ function update(){
             stats.Score = scorePerGame.toString();
             stats.Tries = ""
             for (let i = 0; i < _tries; i++){
-                console.log("number of tries " + _tries)
                 stats.Tries += String.fromCodePoint(0x1F48E)
             }
             stats.Word = word
-            console.log(stats.Score + " score")
             playerResult.push(stats)
             arrangeResultShare()
-            console.log(playerResultTxt)
 
             numOfPlays += 1;
             updateTable()
             YourScore.innerText = totalScore + "pts";
-
-            console.log("Score: " + totalScore)
-
+            
             startConfetti()
             stopConfetti()
             addMoreTries();
@@ -823,9 +796,6 @@ function update(){
             }
         }
     }
-
-    console.log(letterCount);
-    console.log("col " + col);
 
     livesText = document.getElementById("lives").innerText = String.fromCodePoint(0x1F48E) + ": " + (--lives).toString();
 
