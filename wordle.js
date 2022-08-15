@@ -65,7 +65,7 @@ async function shareImage(src) {
     const shareData = {
         text: "Play with me",
         title: "Wordle Grand Prix",
-        url: "https://afamuefuna.github.io/Wordle/Index.html",
+        url: "wordlegrandprix.com",
     };
 
     navigator.share(shareData);
@@ -74,14 +74,14 @@ async function shareImage(src) {
 const shareDataTest = {
     text: "Play with me",
     title: "Wordle Grand Prix",
-    url: "https://afamuefuna.github.io/Wordle/Index.html",
+    url: "wordlegrandprix.com",
 };
 
 function shareText(){
     var introTxt = "I guessed " + numOfPlays + "Word(s) in a row!! can you beat my score?" + "\n\n"
     const shareData = {
         text: introTxt + playerResultTxt + "\n" + totalScore + " points",
-        url: "https://afamuefuna.github.io/Wordle/Index.html",
+        url: "wordlegrandprix.com",
     };
 
     if (navigator.share) {
@@ -91,7 +91,7 @@ function shareText(){
     } else {
         console.log("Web Share API is not supported in your browser.")
         
-        var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "https://afamuefuna.github.io/Wordle/Index.html";
+        var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "wordlegrandprix.com";
         
         navigator.clipboard.writeText(shareInfo);
         
