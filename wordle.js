@@ -81,8 +81,10 @@ function shareText(){
     var introTxt = "I guessed " + numOfPlays + "Word(s) in a row!! can you beat my score?" + "\n\n"
     const shareData = {
         text: introTxt + playerResultTxt + "\n" + totalScore + " points",
-        url: "wordlegrandprix.com",
+        url: "",
     };
+    
+    console.log(shareData.url)
 
     if (navigator.share) {
         navigator.share(shareData)
