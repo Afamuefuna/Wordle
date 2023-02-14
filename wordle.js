@@ -80,29 +80,45 @@ const shareDataTest = {
 function shareText(){
     var introTxt = "I guessed " + numOfPlays + "Word(s) in a row!! can you beat my score?" + "\n\n"
     const shareData = {
-        text: introTxt + playerResultTxt + "\n" + totalScore + " points",
+        text: introTxt + playerResultTxt + "\n" + totalScore + " points" + "\n",
         url: "",
     };
     
     console.log(shareData.url)
 
-    if (navigator.share) {
-        navigator.share(shareData)
-            .then(() => console.log('Successful share'))
-            .catch((error) => console.log('Error sharing', error));
-    } else {
-        console.log("Web Share API is not supported in your browser.")
-        
-        var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "wordlegrandprix.com";
-        
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        if (navigator.share) {
+            navigator.share(shareData)
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+        }else{
+            var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "https://wordlegrandprix.com/index.html";
+            navigator.clipboard.writeText(shareInfo);
+            var feedback = document.getElementById('feedback')
+            if(feedback.style.zIndex == "10"){
+                return;
+            }
+            anime({
+                targets: feedback,
+                easing: 'linear',
+                opacity: 1,
+                translateY: 20,
+                duration: 100,
+                complete:function () {
+                    feedback.style.zIndex = '10'
+                    clearFeedBack()
+                }
+            })
+        }
+    }else{
+        var shareInfo = introTxt + playerResultTxt + '\n' + totalScore + " points" + "\n\n" + "https://wordlegrandprix.com/index.html";
         navigator.clipboard.writeText(shareInfo);
-        
         var feedback = document.getElementById('feedback')
-
         if(feedback.style.zIndex == "10"){
             return;
         }
-    
         anime({
             targets: feedback,
             easing: 'linear',
@@ -186,9 +202,12 @@ var resultDetail = {
 
 var resultDetailList = [resultDetail]
 
-window.onload = function (){
+var fileName = "WordleList.txt"
 
-    readTextFile("scrabbable")
+window.onload = function (){
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    
+    readTextFile(fileName)
     initialize();
     
     typeFormBtn = document.getElementsByClassName('tf-v1-popover')
@@ -276,7 +295,7 @@ function readTextFile(file)
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status === 0) {
                 var allText = rawFile.responseText;
-                var textByLine = allText.split(' ')
+                var textByLine = allText.split('\n')
 
                 wordList = textByLine;
                 guessList = textByLine;
@@ -753,7 +772,7 @@ function update(){
             startConfetti()
             stopConfetti()
             addMoreTries();
-            readTextFile("scrabbable")
+            readTextFile(fileName)
             col = 0
             row += 1;
             _tries = 1;
